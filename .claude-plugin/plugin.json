@@ -1,0 +1,23 @@
+{
+  "name": "react-native-perf-skills",
+  "version": "1.0.0",
+  "description": "DMAIC performance workflow for React Native — Define, Measure, Analyze, Improve, Control. Layers on top of callstackincubator/react-native-best-practices with profiling interpretation, antipattern detection, and regression monitoring.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "performance",
+    "dmaic",
+    "profiling",
+    "flashlight",
+    "reanimated",
+    "optimization"
+  ],
+  "author": {
+    "name": "Jeferson Brito"
+  },
+  "homepage": "https://github.com/jeferson-sb/react-native-perf-skills",
+  "repository": "https://github.com/jeferson-sb/react-native-perf-skills",
+  "peerDependencies": {
+    "react-native-best-practices": ">=1.0.0"
+  }
+}
