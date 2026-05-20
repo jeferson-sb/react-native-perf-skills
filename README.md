@@ -1,4 +1,4 @@
-# react-native-perf-skills
+# React Native Performance Skills
 
 DMAIC performance workflow for React Native and Expo apps. Define, Measure, Analyze, Improve, Control — a structured approach to finding and fixing performance issues.
 
@@ -32,27 +32,13 @@ Once installed, skills are available as slash commands in any React Native proje
 /perf:control        # Set up regression monitoring
 ```
 
-### OpenAI Codex
+### OpenAI Codex / Other Agents
 
-This plugin ships skill definitions compatible with OpenAI Codex agents. Reference the skill files from the `skills/` directory in your agent configuration:
+Install with `npx skills`:
 
-```yaml
-# agents/react-native-perf.yaml
-interface:
-  display_name: "React Native Performance"
-  short_description: "DMAIC performance workflow for React Native"
-  default_prompt: "Use react-native-perf-skills to diagnose and improve React Native performance."
-
-skills:
-  - path: skills/quick/SKILL.md
-  - path: skills/define/SKILL.md
-  - path: skills/measure/SKILL.md
-  - path: skills/analyze/SKILL.md
-  - path: skills/improve/SKILL.md
-  - path: skills/control/SKILL.md
+```bash
+npx skills install jeferson-sb/react-native-perf-skills
 ```
-
-The `references/` directories contain standalone markdown files that can be loaded on-demand by any agent framework that supports file-based context injection.
 
 ## Available Skills
 
