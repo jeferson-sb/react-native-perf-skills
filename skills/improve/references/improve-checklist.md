@@ -19,7 +19,7 @@ Ordered fix sequences for each root cause category. Apply in order — each step
 | 5 | Replace inline style objects with StyleSheet constants | MEDIUM | 1h | — |
 | 6 | Migrate Context to Zustand/Jotai selectors | MEDIUM | 2-4h | `js-atomic-state.md` |
 | 7 | Use `useMemo` for expensive derived data | MEDIUM | 30m | — |
-| 8 | Apply `useDeferredValue` for non-urgent updates | LOW | 30m | `js-concurrent-react.md` |
+| 8 | Apply `useDeferredValue` / `useTransition` for non-urgent updates | MEDIUM | 30m | `deferred-work-patterns.md` |
 
 **When to stop**: Re-measure after steps 1-3. If FPS target met, remaining steps are optional tech debt.
 
@@ -87,9 +87,10 @@ const handlePress = useCallback((id: string) => {
 | 1 | Replace `Animated.Value` with `useSharedValue` | CRITICAL | 2-4h | `js-animations-reanimated.md` |
 | 2 | Replace `PanResponder` with `Gesture.Pan()` | HIGH | 2-3h | — |
 | 3 | Replace `Animated.event` with `useAnimatedScrollHandler` | HIGH | 1-2h | — |
-| 4 | Move interpolation to `useAnimatedStyle` | MEDIUM | 1h | — |
-| 5 | Use `withTiming`/`withSpring` instead of `Animated.timing` | MEDIUM | 1h | — |
-| 6 | Add `native: true` to legacy LayoutAnimation | LOW | 15m | — |
+| 4 | Defer heavy screen work with `InteractionManager.runAfterInteractions` | HIGH | 30m | `deferred-work-patterns.md` |
+| 5 | Move interpolation to `useAnimatedStyle` | MEDIUM | 1h | — |
+| 6 | Use `withTiming`/`withSpring` instead of `Animated.timing` | MEDIUM | 1h | — |
+| 7 | Add `native: true` to legacy LayoutAnimation | LOW | 15m | — |
 
 ### Step 1: Reanimated Migration
 
@@ -190,11 +191,12 @@ project.ext.react = [
 |---|-----|--------|--------|---------------|
 | 1 | Fix barrel imports on startup path | CRITICAL | 2-4h | `bundle-barrel-exports.md` |
 | 2 | Lazy-load non-critical screens | HIGH | 2-3h | — |
-| 3 | Move heavy init to after first render | HIGH | 1-2h | — |
-| 4 | Remove sync storage reads from startup | MEDIUM | 1-2h | — |
-| 5 | Remove unused native module auto-links | MEDIUM | 1h | — |
-| 6 | Enable Hermes (if not already) | HIGH | 30m | — |
-| 7 | Optimize splash → first render transition | LOW | 1h | — |
+| 3 | Defer non-critical init with `InteractionManager.runAfterInteractions` | HIGH | 30m | `deferred-work-patterns.md` |
+| 4 | Move heavy init to after first render (useEffect) | HIGH | 1-2h | — |
+| 5 | Remove sync storage reads from startup | MEDIUM | 1-2h | — |
+| 6 | Remove unused native module auto-links | MEDIUM | 1h | — |
+| 7 | Enable Hermes (if not already) | HIGH | 30m | — |
+| 8 | Optimize splash → first render transition | LOW | 1h | — |
 
 ### Step 2: Lazy Screen Loading
 
