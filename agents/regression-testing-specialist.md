@@ -1,6 +1,6 @@
 ---
 name: regression-testing-specialist
-description: "Specialist for performance regression testing setup. Configures callstack/reassure interaction tests, Flashlight CI integration, bundle size thresholds, and documents baselines. Spawned by perf:control to implement monitoring. This agent CAN write files."
+description: "Specialist for performance regression testing setup. Configures callstack/reassure interaction tests, Flashlight CI integration, bundle size thresholds, and documents baselines. Spawned by perf-control to implement monitoring. This agent CAN write files."
 tools: Read, Grep, Glob, Bash, Edit, Write
 permissionMode: bypassPermissions
 model: sonnet

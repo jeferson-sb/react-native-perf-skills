@@ -1,5 +1,5 @@
 ---
-name: perf:quick
+name: perf-quick
 description: "Fast 5-minute React Native performance audit. Scans source for the 12 most impactful antipatterns without profiling — code-level grep scan only. Use as a first pass before deeper DMAIC investigation."
 effort: low
 argument-hint: "[path to scan, defaults to src/]"
@@ -13,8 +13,8 @@ Run a fast, grep-based scan for the 12 most impactful React Native performance a
 ## Usage
 
 ```
-/perf:quick              # Scan src/ (default)
-/perf:quick app/         # Scan specific directory
+/perf-quick              # Scan src/ (default)
+/perf-quick app/         # Scan specific directory
 ```
 
 ## Scan Protocol
@@ -139,14 +139,14 @@ grep -rn "^\s*const.*= require(" --include="*.tsx" --include="*.ts"
 ### Summary
 - 2 CRITICAL, 3 HIGH, 1 MEDIUM issues found
 - Estimated FPS impact: +15-25 frames if CRITICAL/HIGH resolved
-- Next step: /perf:define to scope the highest-priority fix, or /perf:measure for baseline
+- Next step: /perf-define to scope the highest-priority fix, or /perf-measure for baseline
 ```
 
 ## After Scan
 
-- If CRITICAL issues found: recommend `/perf:define` to scope the fix
-- If no issues found: recommend `/perf:measure` to profile for non-code-visible bottlenecks
-- Always remind: "This scan catches code-level patterns only. Runtime issues (memory leaks, native bottlenecks) require profiling — use `/perf:measure`"
+- If CRITICAL issues found: recommend `/perf-define` to scope the fix
+- If no issues found: recommend `/perf-measure` to profile for non-code-visible bottlenecks
+- Always remind: "This scan catches code-level patterns only. Runtime issues (memory leaks, native bottlenecks) require profiling — use `/perf-measure`"
 
 ## Callstack References
 - `js-lists-flatlist-flashlist.md` — FlashList migration

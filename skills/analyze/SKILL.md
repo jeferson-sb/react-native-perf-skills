@@ -1,6 +1,6 @@
 ---
-name: perf:analyze
-description: "DMAIC Phase 3 — Root cause analysis. Takes baseline metrics from /perf:measure and maps them to root causes using pattern matching. Searches the codebase for supporting evidence. Produces a ranked hypothesis list with confidence levels."
+name: perf-analyze
+description: "DMAIC Phase 3 — Root cause analysis. Takes baseline metrics from /perf-measure and maps them to root causes using pattern matching. Searches the codebase for supporting evidence. Produces a ranked hypothesis list with confidence levels."
 effort: medium
 argument-hint: "[path to baseline-metrics or symptom summary]"
 tools: Read, Glob, Grep, Bash
@@ -13,8 +13,8 @@ Map measured metrics to root causes. This phase bridges "what's slow" to "why it
 ## Usage
 
 ```
-/perf:analyze                    # Reads from .perf/[slug]/baseline-metrics.md
-/perf:analyze "FPS drops to 28 during scroll, JS thread at 80%"
+/perf-analyze                    # Reads from .perf/[slug]/baseline-metrics.md
+/perf-analyze "FPS drops to 28 during scroll, JS thread at 80%"
 ```
 
 ## Workflow
@@ -112,7 +112,7 @@ Save to `.perf/[slug]/root-cause.md`
 
 ### Step 6: Route to Fix
 
-- "Root cause identified. Run `/perf:improve [category]` to apply targeted fixes."
+- "Root cause identified. Run `/perf-improve [category]` to apply targeted fixes."
 - If multiple hypotheses: "Start with Hypothesis 1 (highest confidence). Re-measure after fix to confirm before addressing Hypothesis 2."
 
 ## Spawning Specialist Agents

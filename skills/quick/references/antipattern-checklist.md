@@ -6,7 +6,7 @@ tags: antipatterns, grep, detection, scan
 
 # Antipattern Detection Reference
 
-Quick lookup table for the grep patterns used by `/perf:quick` and the `detect-perf-antipatterns.sh` hook.
+Quick lookup table for the grep patterns used by `/perf-quick` and the `detect-perf-antipatterns.sh` hook.
 
 ## Pattern Registry
 

@@ -11,45 +11,38 @@ graph LR;
 
 ## Quick Start
 
-### Claude Code
+> [!WARNING]  
+> These skills assume you have a working React Native development environment already set up — including Xcode/Android Studio, a running emulator or physical device, and a project that builds successfully. Always follow the official docs for [React Native](https://reactnative.dev/docs/set-up-your-environment) and [Expo](https://docs.expo.dev/get-started/set-up-your-environment/).
 
-```bash
-# Install the plugin
-claude plugin add jeferson-sb/react-native-perf-skills
-
-# Also install the peer dependency
-claude plugin add callstack-agent-skills/react-native-best-practices
-```
-
-Once installed, skills are available as slash commands in any React Native project:
-
-```
-/perf:quick          # Fast antipattern scan (no profiling needed)
-/perf:define         # Scope a performance problem
-/perf:measure fps    # Collect baseline metrics
-/perf:analyze        # Find root cause
-/perf:improve        # Apply targeted fixes
-/perf:control        # Set up regression monitoring
-```
-
-### OpenAI Codex / Other Agents
 
 Install with `npx skills`:
 
 ```bash
 npx skills install jeferson-sb/react-native-perf-skills
+npx skills install callstackincubator/agent-skills --skill react-native-best-practices
+```
+
+Once installed, skills are available as slash commands in any React Native project:
+
+```
+/perf-quick          # Fast antipattern scan (no profiling needed)
+/perf-define         # Scope a performance problem
+/perf-measure fps    # Collect baseline metrics
+/perf-analyze        # Find root cause
+/perf-improve        # Apply targeted fixes
+/perf-control        # Set up regression monitoring
 ```
 
 ## Available Skills
 
 | Skill | Command | Purpose |
 |-------|---------|---------|
-| **Quick** | `/perf:quick` | Grep-based scan for 12 high-impact antipatterns (ScrollView+map, Animated.Value, inline styles, barrel imports, etc.) |
-| **Define** | `/perf:define` | DMAIC Phase 1 — Classify the symptom, identify the affected flow, set measurable targets, write a problem statement |
-| **Measure** | `/perf:measure` | DMAIC Phase 2 — Route to the correct profiling tool (Flashlight, React DevTools, Xcode Instruments, Android Studio), interpret output |
-| **Analyze** | `/perf:analyze` | DMAIC Phase 3 — Map metrics to root causes using pattern matching, search codebase for evidence, rank hypotheses |
-| **Improve** | `/perf:improve` | DMAIC Phase 4 — Ordered fix checklists by category, battle-tested library lookups, deferred work patterns |
-| **Control** | `/perf:control` | DMAIC Phase 5 — Set up callstack/reassure, Flashlight CI, bundle size thresholds, TTI monitoring |
+| **Quick** | `/perf-quick` | Grep-based scan for 12 high-impact antipatterns (ScrollView+map, Animated.Value, inline styles, barrel imports, etc.) |
+| **Define** | `/perf-define` | DMAIC Phase 1 — Classify the symptom, identify the affected flow, set measurable targets, write a problem statement |
+| **Measure** | `/perf-measure` | DMAIC Phase 2 — Route to the correct profiling tool (Flashlight, React DevTools, Xcode Instruments, Android Studio), interpret output |
+| **Analyze** | `/perf-analyze` | DMAIC Phase 3 — Map metrics to root causes using pattern matching, search codebase for evidence, rank hypotheses |
+| **Improve** | `/perf-improve` | DMAIC Phase 4 — Ordered fix checklists by category, battle-tested library lookups, deferred work patterns |
+| **Control** | `/perf-control` | DMAIC Phase 5 — Set up callstack/reassure, Flashlight CI, bundle size thresholds, TTI monitoring |
 
 ## Specialist Agents
 

@@ -142,6 +142,6 @@ flashlight compare --baseline baseline.json --current results.json
 
 ## Next Steps After Flashlight Analysis
 
-- Score < 40 with scroll drops → `/perf:analyze` with "re-renders" or "list virtualization" hypothesis
-- Score 40-70 with gesture drops → `/perf:analyze` with "JS-thread animation" hypothesis
+- Score < 40 with scroll drops → `/perf-analyze` with "re-renders" or "list virtualization" hypothesis
+- Score 40-70 with gesture drops → `/perf-analyze` with "JS-thread animation" hypothesis
 - Score 70+ with isolated drops → targeted fix, may not need full DMAIC cycle

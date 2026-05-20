@@ -166,5 +166,5 @@ If available (React 18+):
 
 After identifying the re-rendering components:
 - Save findings to `.perf/[slug]/research/devtools-findings.md`
-- Run `/perf:analyze` with specific component names and "Why did this render?" reasons
+- Run `/perf-analyze` with specific component names and "Why did this render?" reasons
 - The analyze phase will map these to specific fix patterns

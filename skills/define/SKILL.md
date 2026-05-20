@@ -1,5 +1,5 @@
 ---
-name: perf:define
+name: perf-define
 description: "DMAIC Phase 1 — Define the performance problem. Scope the symptom, classify it, set measurable targets, identify the affected user flow, and produce a structured problem statement. Use before measuring to avoid wasted profiling time."
 effort: low
 argument-hint: "[symptom description or screen name]"
@@ -13,9 +13,9 @@ Scope the performance problem before investing time in profiling. A well-defined
 ## Usage
 
 ```
-/perf:define "Home screen scrolls at 30fps on Android"
-/perf:define "App takes 5 seconds to start on low-end devices"
-/perf:define "Bundle is 12MB and growing"
+/perf-define "Home screen scrolls at 30fps on Android"
+/perf-define "App takes 5 seconds to start on low-end devices"
+/perf-define "Bundle is 12MB and growing"
 ```
 
 ## Workflow
@@ -26,11 +26,11 @@ Classify the user's reported symptom into one of these domains:
 
 | Domain | Symptoms | Measurement Tool | Next Skill |
 |--------|----------|-----------------|------------|
-| **FPS / Jank** | Dropped frames, stuttering scroll, laggy touch response | Flashlight (Android), React Perf Monitor | `/perf:measure fps` |
-| **Startup / TTI** | Slow cold start, splash screen lingers, delayed interactivity | react-native-performance markers, Flashlight | `/perf:measure tti` |
-| **Bundle / App Size** | Large download, slow OTA updates, Play Store warnings | source-map-explorer, Expo Atlas, Ruler | `/perf:measure bundle` |
-| **Memory** | Growing RAM usage, OOM crashes, GC pauses | React DevTools Memory, Xcode Leaks, Android Memory Profiler | `/perf:measure memory` |
-| **Animation** | Choppy animations, gesture lag, non-60fps transitions | Flashlight + Reanimated inspector | `/perf:measure animation` |
+| **FPS / Jank** | Dropped frames, stuttering scroll, laggy touch response | Flashlight (Android), React Perf Monitor | `/perf-measure fps` |
+| **Startup / TTI** | Slow cold start, splash screen lingers, delayed interactivity | react-native-performance markers, Flashlight | `/perf-measure tti` |
+| **Bundle / App Size** | Large download, slow OTA updates, Play Store warnings | source-map-explorer, Expo Atlas, Ruler | `/perf-measure bundle` |
+| **Memory** | Growing RAM usage, OOM crashes, GC pauses | React DevTools Memory, Xcode Leaks, Android Memory Profiler | `/perf-measure memory` |
+| **Animation** | Choppy animations, gesture lag, non-60fps transitions | Flashlight + Reanimated inspector | `/perf-measure animation` |
 
 ### Step 2: Affected Flow Identification
 
@@ -82,8 +82,8 @@ Save the problem statement for reference by later DMAIC phases:
 ## Output
 
 After completing the definition, recommend:
-- "Problem defined. Run `/perf:measure [domain]` to collect baseline metrics."
-- If obvious code-level issues spotted during flow identification: "Consider `/perf:quick` first for a fast scan."
+- "Problem defined. Run `/perf-measure [domain]` to collect baseline metrics."
+- If obvious code-level issues spotted during flow identification: "Consider `/perf-quick` first for a fast scan."
 
 ## Callstack References
 - `native-measure-tti.md` — TTI measurement markers setup

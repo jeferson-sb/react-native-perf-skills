@@ -1,6 +1,6 @@
 ---
-name: perf:control
-description: "DMAIC Phase 5 — Prevent regressions. Sets up callstack/reassure for render/interaction benchmarks, configures Flashlight for CI, adds bundle size thresholds, and documents the performance baseline. Use after /perf:improve to lock in gains."
+name: perf-control
+description: "DMAIC Phase 5 — Prevent regressions. Sets up callstack/reassure for render/interaction benchmarks, configures Flashlight for CI, adds bundle size thresholds, and documents the performance baseline. Use after /perf-improve to lock in gains."
 effort: medium
 argument-hint: "[what to monitor: fps|bundle|tti|renders|all]"
 tools: Read, Glob, Grep, Bash, Edit
@@ -13,11 +13,11 @@ Lock in performance gains by setting up automated regression detection. Performa
 ## Usage
 
 ```
-/perf:control all         # Full regression setup
-/perf:control fps         # Flashlight CI integration
-/perf:control bundle      # Bundle size threshold
-/perf:control renders     # Reassure render count tests
-/perf:control tti         # Startup time monitoring
+/perf-control all         # Full regression setup
+/perf-control fps         # Flashlight CI integration
+/perf-control bundle      # Bundle size threshold
+/perf-control renders     # Reassure render count tests
+/perf-control tti         # Startup time monitoring
 ```
 
 ## Control Mechanisms (by metric)
@@ -103,7 +103,7 @@ analytics.track('performance.cold_start', {
 
 ### Step 1: Determine What to Monitor
 
-Based on what was fixed in `/perf:improve`:
+Based on what was fixed in `/perf-improve`:
 - Fixed re-renders → set up reassure
 - Fixed FPS → set up Flashlight CI
 - Fixed bundle → set up size threshold
@@ -167,8 +167,8 @@ Save to `.perf/[slug]/control-baseline.md`
 ## After Control Setup
 
 - "Regression monitoring is in place. The DMAIC cycle is complete."
-- "Schedule monthly re-measurement (`/perf:measure`) to catch gradual degradation."
-- "When CI catches a regression: run `/perf:analyze` on the failing PR to identify what changed."
+- "Schedule monthly re-measurement (`/perf-measure`) to catch gradual degradation."
+- "When CI catches a regression: run `/perf-analyze` on the failing PR to identify what changed."
 
 ## DMAIC Cycle Complete
 

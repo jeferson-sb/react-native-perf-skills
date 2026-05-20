@@ -36,7 +36,7 @@ causes [observed symptom: dropped frames/slow start/large download/memory growth
 
 ## Hypothesis (initial)
 - Suspected area: [e.g., list re-renders, heavy component tree, unoptimized images]
-- Evidence: [e.g., user reports, initial code inspection, /perf:quick results]
+- Evidence: [e.g., user reports, initial code inspection, /perf-quick results]
 - Confidence: [Low/Medium/High]
 
 ## Impact
@@ -79,7 +79,7 @@ scrolling the home feed causes visible frame drops and stuttering.
 
 ## Hypothesis (initial)
 - Suspected area: FlatList with heavy item components, inline styles
-- Evidence: /perf:quick found 23 inline style={{}} and ScrollView+map in HomeScreen
+- Evidence: /perf-quick found 23 inline style={{}} and ScrollView+map in HomeScreen
 - Confidence: Medium
 
 ## Impact
@@ -127,5 +127,5 @@ app cold start shows splash screen for 4+ seconds before interactive.
 ## After Writing the Problem Statement
 
 Save to `.perf/[slug]/define.md` and proceed:
-- `/perf:measure [domain]` — collect baseline metrics with the correct tool
-- If hypothesis confidence is High and code evidence is clear: skip to `/perf:improve`
+- `/perf-measure [domain]` — collect baseline metrics with the correct tool
+- If hypothesis confidence is High and code evidence is clear: skip to `/perf-improve`

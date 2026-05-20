@@ -1,5 +1,5 @@
 ---
-name: perf:measure
+name: perf-measure
 description: "DMAIC Phase 2 — Collect performance data. Routes to the correct measurement tool based on symptom domain (FPS, TTI, bundle, memory, animation). Guides profiling setup, interprets tool output, and produces a structured baseline metrics report."
 effort: medium
 argument-hint: "[domain: fps|tti|bundle|memory|animation]"
@@ -13,11 +13,11 @@ Collect baseline performance data using the correct tool for the symptom domain.
 ## Usage
 
 ```
-/perf:measure fps          # FPS/jank measurement
-/perf:measure tti          # Startup time measurement
-/perf:measure bundle       # Bundle & app size analysis
-/perf:measure memory       # Memory usage & leak detection
-/perf:measure animation    # Animation frame rate analysis
+/perf-measure fps          # FPS/jank measurement
+/perf-measure tti          # Startup time measurement
+/perf-measure bundle       # Bundle & app size analysis
+/perf-measure memory       # Memory usage & leak detection
+/perf-measure animation    # Animation frame rate analysis
 ```
 
 ## Measurement Principles
@@ -194,7 +194,7 @@ Save to `.perf/[slug]/baseline-metrics.md`
 
 ## After Measuring
 
-- "Baseline collected. Run `/perf:analyze` to identify root cause from these metrics."
+- "Baseline collected. Run `/perf-analyze` to identify root cause from these metrics."
 - If metrics are already in "Excellent" range: "Metrics look healthy — verify the symptom is reproducible or check device-specific issues."
 
 ## Callstack References

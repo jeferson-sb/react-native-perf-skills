@@ -1,6 +1,6 @@
 ---
-name: perf:improve
-description: "DMAIC Phase 4 — Apply targeted fixes. Takes a root cause from /perf:analyze and presents an ordered improvement checklist. Prioritizes battle-tested library substitutions over custom code, then code-level fixes, then architecture changes."
+name: perf-improve
+description: "DMAIC Phase 4 — Apply targeted fixes. Takes a root cause from /perf-analyze and presents an ordered improvement checklist. Prioritizes battle-tested library substitutions over custom code, then code-level fixes, then architecture changes."
 effort: medium
 argument-hint: "[category: renders|animations|bundle|tti|memory|native]"
 tools: Read, Glob, Grep, Bash, Edit
@@ -8,17 +8,17 @@ tools: Read, Glob, Grep, Bash, Edit
 
 # Improve — DMAIC Phase 4
 
-Apply targeted fixes based on the root cause identified in `/perf:analyze`. Follow the checklist for the specific category. Always re-measure after each significant fix.
+Apply targeted fixes based on the root cause identified in `/perf-analyze`. Follow the checklist for the specific category. Always re-measure after each significant fix.
 
 ## Usage
 
 ```
-/perf:improve renders       # Re-render optimization checklist
-/perf:improve animations    # Animation performance fixes
-/perf:improve bundle        # Bundle size reduction
-/perf:improve tti           # Startup time optimization
-/perf:improve memory        # Memory leak fixes
-/perf:improve native        # Native layer optimization
+/perf-improve renders       # Re-render optimization checklist
+/perf-improve animations    # Animation performance fixes
+/perf-improve bundle        # Bundle size reduction
+/perf-improve tti           # Startup time optimization
+/perf-improve memory        # Memory leak fixes
+/perf-improve native        # Native layer optimization
 ```
 
 ## Improvement Principles
@@ -57,7 +57,7 @@ For each checklist item (in order):
 ### Step 5: Re-measure
 
 After applying fixes:
-- Run the same measurement from `/perf:measure`
+- Run the same measurement from `/perf-measure`
 - Compare baseline vs. post-fix metrics
 - Document delta in `.perf/[slug]/improvements.md`
 
@@ -87,7 +87,7 @@ If after applying all JS-level fixes the metric is still "Needs Work":
 - [x] Target met / [ ] Further optimization needed
 
 ## Next Step
-- /perf:control to lock in gains
+- /perf-control to lock in gains
 - OR: further fixes needed for [remaining gap]
 ```
 
@@ -95,8 +95,8 @@ Save to `.perf/[slug]/improvements.md`
 
 ## After Improvement
 
-- If target met: "Run `/perf:control` to set up regression prevention."
-- If target not met: "Re-run `/perf:analyze` with updated metrics — the bottleneck may have shifted."
+- If target met: "Run `/perf-control` to set up regression prevention."
+- If target not met: "Re-run `/perf-analyze` with updated metrics — the bottleneck may have shifted."
 - Remind: "Performance optimization is iterative. The bottleneck after fixing re-renders may be native layout. Re-measure to find the new ceiling."
 
 ## Callstack References
