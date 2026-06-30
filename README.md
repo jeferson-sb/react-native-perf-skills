@@ -33,6 +33,19 @@ Once installed, skills are available as slash commands in any React Native proje
 /perf-control        # Set up regression monitoring
 ```
 
+## Try it on the demo app
+
+The [`example/`](./example) directory contains **Janky Shop** — a small Expo app
+(Feed → Detail → Settings) to practice the DMAIC workflow on. It looks like an ordinary app;
+its performance problems only surface once you measure. Point the skills at it, find the
+issues yourself, and watch the numbers move after `/perf-improve`.
+
+```bash
+cd example
+npm install
+npx expo prebuild   # for native profiling; or just `npx expo start` for a JS-only look
+```
+
 ## Available Skills
 
 | Skill | Command | Purpose |
@@ -147,10 +160,14 @@ react-native-perf-skills/
 │   ├── native-profiling-specialist.md
 │   ├── bundle-analysis-specialist.md
 │   └── regression-testing-specialist.md
-└── hooks/
-    ├── hooks.json
-    └── scripts/
-        └── session-start-reminder.sh
+├── hooks/
+│   ├── hooks.json
+│   └── scripts/
+│       └── session-start-reminder.sh
+└── example/                # "Janky Shop" — deliberately slow demo app
+    ├── app/                # expo-router screens (Feed, Detail, Settings)
+    ├── src/                # data, context, components (antipattern hotspots)
+    └── README.md           # screen-by-screen antipattern map
 ```
 
 ## License
