@@ -17,7 +17,7 @@ These are non-negotiable for performance-sensitive apps.
 - **Replaces**: `Animated` from react-native core
 - **Key APIs**: `useSharedValue`, `useAnimatedStyle`, `withTiming`, `withSpring`, `runOnUI`
 - **Impact**: 0ms JS thread cost for animations (worklets execute on UI thread)
-- **Caveat**: v4 requires New Architecture (Fabric). Use v3 for old architecture.
+- **Caveat**: v4 requires the New Architecture (Fabric + TurboModules); the Legacy Architecture is no longer supported. Use v3 if still on the old architecture.
 
 ### react-native-gesture-handler
 - **Solves**: Gesture recognition performance (runs on native UI thread)
@@ -38,7 +38,8 @@ These are non-negotiable for performance-sensitive apps.
 - **Replaces**: `FlatList` for any list > 20 items
 - **Key APIs**: Drop-in replacement for FlatList API
 - **Impact**: 2-5x FPS improvement on complex lists (view recycling vs. unmount/remount)
-- **Requirement**: `estimatedItemSize` prop (measure your items)
+- **Sizing**: v2+ auto-computes item sizing — `estimatedItemSize`, `estimatedListSize`, and `estimatedFirstItemOffset` are deprecated and no longer used. Only v1 requires `estimatedItemSize`.
+- **Alternative**: `@legendapp/list` (Legend List) is a viable alternative virtualized list, especially on the New Architecture. FlashList stays the default recommendation; reach for Legend List when its API or behavior fits the use case better.
 
 ## Tier A — Strong Preference (Evaluate Project Fit)
 
@@ -137,6 +138,7 @@ These are non-negotiable for performance-sensitive apps.
 | Reanimated v4 | No | Yes (required) |
 | Gesture Handler v2 | Yes | Yes |
 | FlashList v1 | Yes | Yes |
+| FlashList v2 | Fallback only | Yes (recommended) |
 | react-native-screens | Yes | Yes |
 | expo-image | Yes (Expo) | Yes |
 | fast-image | Yes | Partial (community fork needed) |

@@ -13,6 +13,7 @@ How to read React DevTools Profiler output to identify re-render root causes.
 1. Install React DevTools standalone: `npx react-devtools`
 2. Or use Flipper's React DevTools plugin
 3. Ensure app is in development mode (profiling works in dev only, but measure FPS in release)
+   - To profile **release** builds with React DevTools, use `@callstack/inspector` — it exposes the profiler against production builds, so re-render data reflects optimized code instead of dev-mode overhead.
 4. Navigate to Profiler tab → click Record → perform the interaction → Stop
 
 ## Commit Timeline (Bar Chart)
@@ -158,7 +159,7 @@ If available (React 18+):
 
 ## Limitations
 
-- **Dev mode only**: Profiler measurements include DevTools overhead. Use for *relative* comparison (which component is slowest), not absolute timings.
+- **Dev mode only**: Profiler measurements include DevTools overhead. Use for *relative* comparison (which component is slowest), not absolute timings. To profile a release build instead, use `@callstack/inspector`.
 - **Cannot see native work**: If the flamegraph shows fast React commits but FPS is still low, the bottleneck is in native land. Use Xcode/Android Studio profiler.
 - **Suspense boundaries**: Components behind Suspense won't show render time for the suspended phase.
 

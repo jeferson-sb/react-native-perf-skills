@@ -44,6 +44,8 @@ Master routing table: symptom → platform → tool → what to look for.
 
 **Best for**: FPS regression testing, CI baselines, comparing before/after
 
+> **Automation**: `agent-device` (`callstackincubator/agent-device`) lets an AI agent drive device control and run profiling commands programmatically — useful for scripting/automating the Flashlight + Maestro flow above.
+
 ### React DevTools Profiler
 
 | Capability | Support |
@@ -53,6 +55,7 @@ Master routing table: symptom → platform → tool → what to look for.
 | "Why did this render?" | Yes |
 | Flamegraph | Yes (render duration) |
 | Memory tab | Yes (JS heap) |
+| Release-build profiling | Via `@callstack/inspector` (dev-only otherwise) |
 | CI integration | No (manual only) |
 | Cost | Free |
 

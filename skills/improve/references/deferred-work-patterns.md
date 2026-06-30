@@ -162,7 +162,7 @@ function FilterScreen() {
 // re-rendering it when the deferred value hasn't changed yet
 const ExpensiveList = memo(({ filter }: { filter: string }) => {
   const items = computeExpensiveFilter(filter); // heavy work
-  return <FlashList data={items} renderItem={...} estimatedItemSize={60} />;
+  return <FlashList data={items} renderItem={...} />; // v2+ auto-computes sizing
 });
 ```
 

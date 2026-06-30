@@ -39,16 +39,19 @@ import { FlashList } from '@shopify/flash-list';
 <FlashList
   data={items}
   renderItem={({ item }) => <Item {...item} />}
-  estimatedItemSize={80}
   keyExtractor={item => item.id}
+  // FlashList v2+ auto-computes sizing — no estimatedItemSize needed.
+  // On v1 only, add estimatedItemSize={80}.
 />
 ```
 
 ### Step 2: React Compiler
 
+**Prerequisites**: `babel-plugin-react-compiler` is `@beta`. Requires Expo SDK 52+ or bare RN 0.76+ (New Architecture).
+
 ```bash
 # Install
-npm install -D babel-plugin-react-compiler
+npm install -D babel-plugin-react-compiler@beta
 
 # babel.config.js
 module.exports = {
@@ -145,7 +148,7 @@ const gesture = Gesture.Pan()
 | 5 | Remove unused dependencies (run `npx depcheck`) | MEDIUM | 1h | — |
 | 6 | Remove Intl polyfills if Hermes covers needed APIs | MEDIUM | 1h | — |
 | 7 | Enable R8 for Android | HIGH | 30m | `bundle-r8-android.md` |
-| 8 | Disable JS bundle compression for Hermes mmap | HIGH | 15m | `bundle-hermes-mmap.md` |
+| 8 | Disable JS bundle compression for Hermes mmap (RN ≤ 0.78 only) | HIGH | 15m | `bundle-hermes-mmap.md` |
 | 9 | Evaluate code splitting with Re.Pack | MEDIUM | 1-2 days | `bundle-code-splitting.md` |
 
 ### Step 2: Barrel Import Fix
@@ -176,8 +179,11 @@ android {
 
 ### Step 8: Hermes mmap
 
+Version-gated. On **RN 0.79+**, Android JS bundles default to uncompressed, so Hermes
+already mmaps the bundle — no action needed. Only set this on **RN 0.78 and earlier**:
+
 ```groovy
-// android/app/build.gradle
+// android/app/build.gradle (RN ≤ 0.78 only)
 project.ext.react = [
     enableHermesBundleCompression: false  // Allow Hermes to mmap the bundle directly
 ]

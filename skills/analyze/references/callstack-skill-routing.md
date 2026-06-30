@@ -13,6 +13,7 @@ Maps root causes to specific `react-native-best-practices` reference files, with
 | Root Cause | Callstack Ref File | Profiler Evidence to Look For | Grep Pattern |
 |-----------|-------------------|------------------------------|--------------|
 | Non-virtualized list | `js-lists-flatlist-flashlist.md` | All items render simultaneously in flamegraph | `ScrollView.*\.map\(` |
+| Non-virtualized list (alt) | `js-lists-flatlist-flashlist.md` | — | Virtualized options: FlashList (default) or `@legendapp/list` (Legend List) |
 | JS-thread animations | `js-animations-reanimated.md` | FPS drops correlate with gesture start, JS thread spikes | `new Animated\.Value\|Animated\.timing\|Animated\.event` |
 | Missing memoization | `js-react-compiler.md` | "Props changed" or "Parent rendered" in DevTools | Components in renderItem without `memo()` |
 | State management cascades | `js-atomic-state.md` | "Context changed" in DevTools for many components | `useContext.*Provider.*value=\{\{` |

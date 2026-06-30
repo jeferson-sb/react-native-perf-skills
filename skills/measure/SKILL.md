@@ -46,6 +46,8 @@ flashlight measure --bundleId com.yourapp --testCommand "maestro test scroll-tes
 **Secondary tool**: React Native Perf Monitor (both platforms)
 - Shake device → "Show Perf Monitor" → observe RAM/FPS in real-time
 
+**Automation**: `agent-device` (`callstackincubator/agent-device`) can drive device control and run profiling commands programmatically — useful for scripted or agent-run Flashlight measurements.
+
 **Interpretation**: See `${CLAUDE_SKILL_DIR}/references/flashlight-output-guide.md`
 
 **What to record**:
